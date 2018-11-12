@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace ActInteraction
 {
@@ -17,6 +19,7 @@ namespace ActInteraction
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            DpsReader.ConnectionString = JObject.Parse(File.ReadAllText("ConnectionString.development.json"))["ConnectionStrings"]["DefaultConnection"].ToString();
         }
 
         public IConfiguration Configuration { get; }
