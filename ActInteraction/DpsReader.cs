@@ -30,7 +30,7 @@ namespace ActInteraction
                     {
                         name = damageReader["name"].ToString(),
                         dps = (double)damageReader["encdps"],
-                        duration = (double)damageReader["duration"]
+                        duration = (int)damageReader["duration"]
                     };
                     numbers.Add(damage);
                 }
